@@ -16,7 +16,7 @@ find_max_s:
 		CMP ip, r1
     BLT loop
     MOV r3, r2
-		br lr
+		bx lr
   
   max:
   MOV r3, r2

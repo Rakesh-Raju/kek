@@ -13,4 +13,4 @@ fib_iter_s:
 		CMP r3, 0
 		BNE loop
 		MOV r0, r1
-		br lr
+		bx lr
