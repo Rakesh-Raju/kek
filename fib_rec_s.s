@@ -1,7 +1,7 @@
 .global fib_rec_s
 
 fib_rec_s:
-	@r0 = nth value
+
 	push {lr}	
 
 	fibo:

@@ -1,8 +1,5 @@
 .global find_max_s
 
-@r0 = array
-@r1 = array len
-
 find_max_s:
 	
 	LDR r2,[r0]
