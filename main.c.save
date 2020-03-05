@@ -45,10 +45,12 @@ int fib_iter_c(int n) {
 
 int fib_rec_c(int n)
 {
-    if (n <= 2) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
         return 1;
     } else {
-        return fib_rec_c(n - 2) + fib_rec_c(n - 1);
+        return fib_rec_c(n - 1) + fib_rec_c(n - 2);
     }
 }
 
@@ -78,18 +80,23 @@ int strlen_c(char *s)
 
 int main(void) {
 	
-    int small[] = {8, 5, 3, 11, 6};
-    char length[] = "drastically";
-    int arr[10]; 
-    for(int i = 0; i < 10; i++){
+    int small[] = {2, 5, 3, 11, 6};/*
+   Here!"
+    char length[] = "testing";
+    printf("Here2!");
+    int arr[1000]; 
+    printf("Here3!");
+    for(int i = 0; i < sizeof(arr); i++){
         arr[i] = i;
     }
+    printf("Here4!\n");
 
 
-   printf("Quadratic Test, Input: 5, 3, 4, 2\nC:%u\nARM:%u\n\n",quadratic_c(5, 3, 4, 2), quadratic_s(5, 3, 4, 2));
-   printf("Array Sum Test Input: [1 - 10]\nC:%u\nARM:%u\n\n", sum_array_c(arr, 10), sum_array_s(arr, 10));
-    printf("Find Max Test Input: [2, 5, 3, 11, 6] \nC:%u\nARM:%u\n\n",find_max_c(small, 5) ,find_max_s(small, 5));
-    printf("Fibonacci Iterative Input: 20\nC:%u\nARM:%u\n\n", fib_iter_c(20), fib_iter_s(20));
-    printf("Fibonacci Recursuive Input: 20\nC:%u\nARM:\n\n",fib_rec_c(20));  
-  printf("String Length Test Input: %s\nC:%u\nARM:%u\n",length, strlen_c(length), strlen_s(length));
+    printf("Quadratic Test, Input: 5, 3, 4, 2\nC:%d\nARM:%d\n\n",quadratic_c(5, 3, 4, 2), quadratic_s(5, 3, 4, 2));
+    printf("Array Sum Test Input: [1 - 1000]\nC:%d\nARM:%d\n\n", sum_array_c(arr, 1000), sum_array_s(arr, 1000));
+    printf("Find Max Test Input: [2, 5, 3, 11, 6] \nC:%d\nARM:%d\n\n",find_max_c(small, 5) ,find_max_s(small, 5));
+    printf("Fibonacci Iterative Input: 8\nC:%d\nARM:%d\n\n", fib_iter_c(8), fib_iter_s(8));
+    printf("Fibonacci Recursuive Input: 5\nC:%d\nARM:%d\n\n",fib_rec_c(5), fib_rec_s(5));
+    printf("String Length Test Input: 'testing'\nC:%d\nARM:%d\n", strlen_c(length), strlen_s(length));*/
+printf("HERE!");
 }

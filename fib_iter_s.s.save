@@ -1,0 +1,16 @@
+.global fib_iter_s
+
+fib_iter_s:
+	MOV r1, #1
+	MOV r2, #1
+
+	loop:
+		MOV r3, r2.global fib_rec_s
+
+		ADD r2, r2, r1
+	 	MOV r1, r3
+		SUB r0, #1
+		CMP r0, #0
+		BNE loop
+		MOV r0, r2
+		bx lr

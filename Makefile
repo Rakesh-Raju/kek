@@ -3,7 +3,7 @@ CFLAGS=-g
 ASM=as
 ASMFLAGS=-g
 
-OBJS=main.o quadratic_s.o sum_array_s.o find_max_s.o strlen_s.o fib_iter_s.o fib_rec_s.o
+OBJS=main.c quadratic_s.o sum_array_s.o find_max_s.o strlen_s.o fib_iter_s.o fib_rec_s.o
 EXECUTABLE=project3
 
 # Link the object files together into the executable

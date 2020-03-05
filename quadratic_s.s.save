@@ -1,4 +1,4 @@
-.global quadratic_s
+.global quadratic
 
 quadratic_s:
 			
@@ -8,5 +8,5 @@ quadratic_s:
 	MUL r4, r0, r2 			
 	ADD r12, r4, r3 
 	MOV r0, r12
-	MOV pc, lr 					
+	bx lr 					
 

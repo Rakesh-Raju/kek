@@ -4,20 +4,24 @@
 @r1 = array len
 
 find_max_s:
-	MOV ip, #0
-	MOV r3, #0
 	
-	loop:
-		LDR r2, [r0]
-		CMP r3, r2
-    BGT max
-		ADD r0, r0, #4
-    ADD ip, ip, #1
-		CMP ip, r1
-    BLT loop
-    MOV r3, r2
-		bx lr
-  
-  max:
-  MOV r3, r2
+	LDR r2,[r0]
+	MOV r3, r2
 
+	loop:
+	CMP r1, #1
+	beq end
+	
+	ADD r0, r0, #4
+	LDR r2, [r0]
+	CMP r2, r3
+	bgt max
+	SUBS r1, r1, #1
+	b loop
+
+	max:
+	MOV r3, r2	
+
+	end:
+	MOV r0, r3
+	MOV pc, lr

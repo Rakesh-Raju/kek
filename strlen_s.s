@@ -1,13 +1,24 @@
 .global strlen_s
 
 strlen_s:
-MOV r3, #0
+	
+	LDRB r2, [r0]
+	CMP r2 , #0
+	beq base
+	MOV r1, #0
 
 	loop:
-	LDR r2, [r0]
-	ADD r0, r0, #4
-	ADD r3, r3, #1
+	ADD r0, r0, #1
+	LDRB r2, [r0]
 	CMP r2, #0
-	BNE loop
-	MOV r0,r3
-	br lr
+	beq terminate
+	ADD r1, r1, #1 
+	b loop
+
+base:
+	MOV pc, lr
+
+terminate:
+	ADD r1, r1, #1
+	MOV r0, r1 
+	MOV pc, lr

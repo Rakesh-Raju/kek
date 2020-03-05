@@ -1,16 +1,28 @@
+
+
 .global fib_iter_s
 
 fib_iter_s:
-	MOV r3, r0
-	MOV r0, #1
-	MOV r1, #1
+	CMP r0, #0
+	beq base
+	CMP r0, #1
+	beq base
+
+	MOV r1, #0
+	MOV r2, #0
+	MOV r3, #1
 
 	loop:
-		MOV r2, r1
-		ADD r1, r0, r1
-		MOV r0, r2
-		SUB r3, #1
-		CMP r3, 0
-		BNE loop
-		MOV r0, r1
-		bx lr
+	MOV r1, r2
+	MOV r2, r3
+	ADD r3, r1, r2
+	
+	SUBS r0, #1
+	CMP r0, #1
+	bne loop
+
+	MOV r0, r3
+	MOV pc, lr
+
+	base:
+	mov pc, lr
